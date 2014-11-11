@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+      var map;
+      var initialize = function() {
+        var mapOptions = {
+          zoom: 4,
+          center: new google.maps.LatLng(40.7130889,-73.9385099)
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        var myLatlng = new google.maps.LatLng(40.7130889,-73.9385099);
+
+        //cooper union
+          var ladyPosition = new google.maps.LatLng(40.7291, -73.9906);
+
+          var ladyMarkerOptions = {
+              position: ladyPosition,
+              map: map,
+              title:"This is the place, on my walk to the subway, where the school crossing guard always stands. Saying hi to her every morning is a happy part of my day",
+              icon: 'http://www.easyvectors.com/assets/images/vectors/afbig/smiling-lady-face-clip-art.jpg' //url to images
+          };
+
+          // To add the marker to the map, use the 'map' property
+          var ladyMarker = new google.maps.Marker(ladyMarkerOptions);
+
+        //best place ever
+          var bestPlacePosition = new google.maps.LatLng(25.737578,-80.264974);
+
+          var bestPlaceMarkerOptions = {
+              position: bestPlacePosition,
+              map: map,
+              title:"This is the awesomest place ever.",
+              icon: 'http://iconfever.com/images/portfolio/freeanimal.jpg' //url to images
+          };
+
+          // To add the marker to the map, use the 'map' property
+          var bestPlaceMarker = new google.maps.Marker(bestPlaceMarkerOptions);
+
+            //another spot
+       var mysteryPosition = new google.maps.LatLng(38.0400874,-78.4849739);
+
+          var mysteryOptions = {
+              position: mysteryPosition,
+              map: map,
+              title:"Something crazy happened here",
+              icon: 'http://allaboutwindowsphone.com/images/appicons/172549.png' //url to images
+          };
+
+          // To add the marker to the map, use the 'map' property
+          var mysteryMarker = new google.maps.Marker(mysteryOptions);
+
+
+
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
